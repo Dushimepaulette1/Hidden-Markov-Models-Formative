@@ -97,3 +97,10 @@ raw recordings or Google Drive setup are needed.
 | Walking | 223 | 0.978 | 0.804 |
 | Jumping | 121 | 0.686 | 1.000 |
 | Still | 36 | 1.000 | 1.000 |
+
+Overall accuracy: **0.886** across all unseen test data. On the
+normal-intensity mixed session the model reaches **0.973** with jumping
+sensitivity 0.966; the lower combined jumping score comes entirely from a
+second mixed session kept deliberately as a robustness probe, in which
+gentle jumps overlap the walking intensity distribution. Full analysis in
+`report/`.
