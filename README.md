@@ -16,3 +16,16 @@ Model implemented from scratch in numpy.
 - Evaluated on 15 unseen test files: 88.6% overall accuracy, with 97.3%
   on the normal-intensity mixed session and a documented failure case on
   deliberately gentle jumps (distribution shift analysis in the report)
+
+## Repository contents
+
+| Path | Description |
+|---|---|
+| `hmm_activity_recognition.ipynb` | Full pipeline with saved outputs |
+| `data/train/` | Labelled 5-second training CSVs + mixed training session |
+| `data/test/` | Unseen test CSVs, incl. two labelled mixed sessions (`*_labels.csv`) |
+| `report/` | Project report (PDF) and filled formative template (PDF) |
+| `figures/` | Result figures (convergence, matrices, decoded sequences) |
+
+Each data CSV has columns: `time, ax, ay, az, gx, gy, gz`
+(accelerometer and gyroscope, merged onto shared timestamps).
