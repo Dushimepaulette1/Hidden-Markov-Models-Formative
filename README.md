@@ -46,3 +46,27 @@ raw recordings or Google Drive setup are needed.
    used in this option.
 4. Skip Cell 2 (data preparation; it rebuilds the dataset from raw zips).
 5. Run Cell 3 and everything after it.
+
+### Option B: reproduce everything from raw recordings
+
+1. Record each activity with the Sensor Logger app (accelerometer and
+   gyroscope enabled) and export each recording as a zip. Each zip must
+   contain `Accelerometer.csv` and `Gyroscope.csv`, which is Sensor
+   Logger's default export format.
+2. Name each single-activity zip starting with its activity:
+   `standing...`, `walking...`, `jumping...`, `still...`. Recordings that
+   contain several activities can have any other name (for example
+   `all_activities...`) and are treated as mixed sessions.
+3. Put all zips in a Google Drive folder and set `RAW_ZIPS` in Cell 1 to
+   that folder's path (default: `/content/drive/MyDrive/hmm_data`).
+4. Mixed recordings that should become labelled test files must be listed
+   in the `MIXED_TESTS` dictionary at the top of Cell 2, with the time (in
+   seconds, measured after the 3-second edge trim) at which each activity
+   ends. All other mixed recordings go entirely to training, where
+   Baum-Welch uses them without labels to learn realistic activity
+   transitions.
+5. Runtime, then Run all. Cell 2 unzips every export, merges the two
+   sensors onto shared timestamps, trims 3 seconds from each end to remove
+   start/stop artifacts, slices single-activity recordings into labelled
+   5-second files (holding out every 6th slice as unseen test data), and
+   writes `data/train` and `data/test` automatically.
