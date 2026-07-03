@@ -88,3 +88,12 @@ raw recordings or Google Drive setup are needed.
 4. **Evaluation:** Viterbi decoding of unseen files; per-class
    sensitivity and specificity, overall accuracy, confusion matrix, and
    decoded-sequence plots against ground truth.
+
+## Results
+
+| State (Activity) | Samples | Sensitivity | Specificity |
+|---|---|---|---|
+| Standing | 93 | 0.882 | 0.987 |
+| Walking | 223 | 0.978 | 0.804 |
+| Jumping | 121 | 0.686 | 1.000 |
+| Still | 36 | 1.000 | 1.000 |
