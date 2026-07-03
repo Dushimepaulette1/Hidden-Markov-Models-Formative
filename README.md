@@ -107,5 +107,5 @@ gentle jumps overlap the walking intensity distribution. Full analysis in
 
 ## Author
 
-Paulette Dushime
+Paulette Dushime  
 BSc Software Engineering (Machine Learning), African Leadership University
