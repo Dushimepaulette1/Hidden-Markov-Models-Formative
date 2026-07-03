@@ -104,3 +104,8 @@ sensitivity 0.966; the lower combined jumping score comes entirely from a
 second mixed session kept deliberately as a robustness probe, in which
 gentle jumps overlap the walking intensity distribution. Full analysis in
 `report/`.
+
+## Author
+
+Paulette Dushime
+BSc Software Engineering (Machine Learning), African Leadership University
