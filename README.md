@@ -29,3 +29,20 @@ Model implemented from scratch in numpy.
 
 Each data CSV has columns: `time, ax, ay, az, gx, gy, gz`
 (accelerometer and gyroscope, merged onto shared timestamps).
+
+## How to run
+
+### Option A: run with the processed data included in this repo (fastest)
+
+The `data/` folder already contains the sliced, labelled CSV files, so no
+raw recordings or Google Drive setup are needed.
+
+1. Open `hmm_activity_recognition.ipynb` in Google Colab.
+2. Upload the `data/` folder from this repo into the Colab session so it
+   sits at `/content/data` (i.e. `/content/data/train` and
+   `/content/data/test`).
+3. Run Cell 1 (imports and configuration). When the Google Drive
+   authorization prompt appears you can approve it; Drive is not actually
+   used in this option.
+4. Skip Cell 2 (data preparation; it rebuilds the dataset from raw zips).
+5. Run Cell 3 and everything after it.
