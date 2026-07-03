@@ -70,3 +70,21 @@ raw recordings or Google Drive setup are needed.
    start/stop artifacts, slices single-activity recordings into labelled
    5-second files (holding out every 6th slice as unseen test data), and
    writes `data/train` and `data/test` automatically.
+
+## Method summary
+
+1. **Preprocessing:** merge sensors, trim edges, resample to 50 Hz,
+   slice into labelled 5 s files.
+2. **Features:** per 1 s window: mean acceleration magnitude, log std,
+   log RMS, log SMA, log gyroscope std, dominant frequency (FFT), log
+   spectral energy (FFT). Z-score normalization fitted on training data
+   only.
+3. **Model:** hidden states = 4 activities; observations = 7-d feature
+   vectors; emissions = diagonal Gaussians; transitions = 4x4 matrix.
+   Informed initialization from labelled files, then joint refinement
+   with Baum-Welch (stops when the change in total log-likelihood falls
+   below 1e-4). Hidden states are mapped to activity names by majority
+   vote on decoded training files.
+4. **Evaluation:** Viterbi decoding of unseen files; per-class
+   sensitivity and specificity, overall accuracy, confusion matrix, and
+   decoded-sequence plots against ground truth.
